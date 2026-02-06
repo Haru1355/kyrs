@@ -10,7 +10,7 @@ export const Header = () => {
 			<li><Link to="/news">новости </Link></li>
 			</ul>
 		</div>
-		<img className="w-full max-w-[157px] h-[141px]" src="/src/assets/logo.png" alt="logo" />
+		<img className="w-full max-w-[157px] h-[141px]" src="/src/assets/logo.svg" alt="logo" />
 		<div className="w-full">
 			<ul className='flex gap-2 justify-between'>
 			<li><Link to="">Благотворительны фонд </Link></li>

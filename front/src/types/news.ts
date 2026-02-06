@@ -64,7 +64,7 @@ export interface NewsItem {
 	id: number;
 	documentId: string;
 	title: string;
-	content: ContentElement[];
+	content: string;
 	createdAt: string;
 	updatedAt: string;
 	publishedAt: string;
@@ -95,6 +95,6 @@ export interface NewsResponse {
 
 }
 export interface OneNewsResponse{
-	data:NewsItem;
+	data:NewsItem[];
 	meta: MetaData;
 }

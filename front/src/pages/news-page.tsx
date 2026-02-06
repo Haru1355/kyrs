@@ -44,9 +44,16 @@ export const NewsPage = () => {
 	return (
 		<div className=''>
 			<article>
-				<h1>{news?.data.title}</h1>
-				{/* <p className='text-[#38405280] text-2xl'>{formatter.format(new Date(news.data.date))}</p> */}
-				<Content content={news.data.content} />
+	    	{
+					<p className='text-[#0000007e] text-[16px] ml-2 mt-2 '>
+						{formatter.format(new Date(news.data[0].date))}
+					</p>
+				}
+				<h1 className='text-[40px] text-[#1a1a1a]  pl-2 font-bold'>
+					{news?.data[0].title}
+				</h1>
+			
+				<Content content={news.data[0].content} />
 			</article>
 		</div>
 	);

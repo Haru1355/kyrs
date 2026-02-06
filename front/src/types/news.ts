@@ -72,6 +72,7 @@ export interface NewsItem {
 		url:string
 	}
 	date:string
+	slug:string
 }
 
 // Тип для пагинации
@@ -90,5 +91,10 @@ export interface MetaData {
 // Тип для всего ответа API
 export interface NewsResponse {
 	data: NewsItem[];
+	meta: MetaData;
+
+}
+export interface OneNewsResponse{
+	data:NewsItem;
 	meta: MetaData;
 }

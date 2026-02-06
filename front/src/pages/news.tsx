@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { fetchNews } from '../api/api';
 import type { NewsResponse } from '../types/news';
 import { Link } from 'react-router';
-const formatter = new Intl.DateTimeFormat('ru-RU', {
+// eslint-disable-next-line react-refresh/only-export-components
+ const formatter = new Intl.DateTimeFormat('ru-RU', {
 	day: 'numeric',
 	month: 'long',
 	year: 'numeric',
@@ -45,7 +46,7 @@ export const News = () => {
 			<div className="flex flex-col gap-[90px]">
 			{news?.data.map(item => {
 				console.log(item.img.url);
-				return <Link className='flex justify-between gap-2 h-80 w-full'> 
+				return <Link to={`/news/${item.slug}`} className='flex justify-between gap-2 h-80 w-full'> 
 					<img className="w-[45%] h-full object-cover rounded-[20px] " src={`http://localhost:1337${item.img.url}`} alt="" />
 					<div className="h-full w-[2px] bg-[#38405233]"></div>
 					<div className="w-[45%] flex-col flex justify-between">

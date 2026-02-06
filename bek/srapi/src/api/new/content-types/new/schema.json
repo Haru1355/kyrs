@@ -25,10 +25,15 @@
       ]
     },
     "content": {
-      "type": "blocks"
+      "type": "richtext"
     },
     "date": {
       "type": "date"
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

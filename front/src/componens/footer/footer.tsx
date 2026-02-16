@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 
 export const Footer = () => {
 	return (
-		<footer className='bg-[#e4e9f0] rounded-t-[90px] p-20 mt-[-65px] flex max-w-100% mx-auto justify-between items-center px-5 my-5 gap-12  '>
+		<footer className='bg-[#e4e9f0] rounded-t-[90px] p-20 mt-[-65px] flex max-w-100% mx-auto justify-between items-center px-5 mt-5 gap-12  '>
 			<img
 				className='w-full max-w-[157px] h-[141px]'
 				src='/src/assets/logo.svg'

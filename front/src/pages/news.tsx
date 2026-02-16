@@ -41,7 +41,7 @@ export const News = () => {
 	}
 	console.log(news?.data);
 	return (
-		<div className=''>
+		<div className='bg-[#f4f6f9] rounded-t-[90px] p-20 mt-[-55px]'>
 			<h1 className='text-[70px] font-extrabold mb-10'>Новости</h1> 
 			<div className="flex flex-col gap-[90px]">
 			{news?.data.map(item => {

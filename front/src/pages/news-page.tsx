@@ -42,17 +42,17 @@ export const NewsPage = () => {
 	}
 	console.log(news);
 	return (
-		<div className=''>
+		<div className='bg-[#f4f6f9] rounded-t-[90px] p-20 mt-[-55px]'>
 			<article>
-	    	{
-					<p className='text-[#0000007e] text-[16px] ml-2 mt-2 '>
-						{formatter.format(new Date(news.data[0].date))}
-					</p>
-				}
+	    	
 				<h1 className='text-[40px] text-[#1a1a1a]  pl-2 font-bold'>
 					{news?.data[0].title}
 				</h1>
-			
+			{
+					<p className='text-[#0000007e] text-[16px] ml-2 mt-2 border-b-1 border-[#38405233]'>
+						{formatter.format(new Date(news.data[0].date))}
+					</p>
+				}
 				<Content content={news.data[0].content} />
 			</article>
 		</div>

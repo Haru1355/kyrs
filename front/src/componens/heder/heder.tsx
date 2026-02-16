@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 
 export const Header = () => {
 	return (
-		<header className='flex max-w-[1400px] mx-auto justify-between items-center px-5 my-5 gap-12'>
+		<header className='flex max-w-100% mx-auto justify-between items-center px-5 my-5 gap-12 '>
 			<img
 				className='w-full max-w-[157px] h-[141px]'
 				src='/src/assets/logo.svg'

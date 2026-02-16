@@ -4,7 +4,7 @@ import '../index.css';
 import { AppRouter } from '../routes/routes';
 export const Layout = () => {
 	return (
-		<div className='container mx-auto'>
+		<div className='container '>
 			<Header />
 			<main>
 				<AppRouter />

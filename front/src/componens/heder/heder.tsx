@@ -3,11 +3,11 @@ import { Link } from 'react-router';
 export const Header = () => {
 	return (
 		<header className='flex max-w-100% mx-auto justify-between items-center px-5 my-5 gap-12 '>
-			<img
+			<Link to='/'><img
 				className='w-full max-w-[157px] h-[141px]'
 				src='/src/assets/logo.svg'
 				alt='logo'
-			/>
+			/></Link>
 			<div className=' w-full justify-center text-gray-600'>
 				<ul className='flex gap-2 justify-between'>
 					<li>

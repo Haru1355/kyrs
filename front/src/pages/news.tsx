@@ -45,8 +45,7 @@ export const News = () => {
 			<h1 className='text-[70px] font-extrabold mb-10'>Новости</h1> 
 			<div className="flex flex-col gap-[90px]">
 			{news?.data.map(item => {
-				console.log(item.img.url);
-				return <Link to={`/news/${item.slug}`} className='flex justify-between gap-2 h-80 w-full'> 
+				return <Link to={`/news/${item.slug}`} className='flex justify-between gap-2 h-80 w-full'>
 					<img className="w-[45%] h-full object-cover rounded-[20px] " src={`http://localhost:1337${item.img.url}`} alt="" />
 					<div className="h-full w-[2px] bg-[#38405233]"></div>
 					<div className="w-[45%] flex-col flex justify-between">

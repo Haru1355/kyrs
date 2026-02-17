@@ -1,5 +1,5 @@
 import { Footer } from '../componens/footer/footer'
-import { Header } from '../componens/heder/heder';
+import { Header } from '../componens/header/header.tsx';
 import '../index.css';
 import { AppRouter } from '../routes/routes';
 export const Layout = () => {

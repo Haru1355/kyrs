@@ -20,7 +20,7 @@ export const NewsPage = () => {
 		const fetchData = async () => {
 			try {
 				setLoading(true);
-				const result = await fetchOneNews(slug);
+				const result = await fetchOneNews(slug || '');
 				setNews(result);
 			} catch (err) {
 				setError(err instanceof Error ? err.message : 'An error occurred');

@@ -3,11 +3,14 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router';
 import './index.css';
 import { Layout } from './pages/layout.tsx';
+import {Provider} from "jotai";
 
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
-		<BrowserRouter>
-			<Layout />
-		</BrowserRouter>
+		<Provider>
+			<BrowserRouter>
+				<Layout />
+			</BrowserRouter>
+		</Provider>
 	</StrictMode>
 );

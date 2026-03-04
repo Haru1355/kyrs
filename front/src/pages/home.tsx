@@ -15,41 +15,41 @@ export const Home = () => {
 		},
 		{
 			id: 1,
-			title: "Мороженное",
-			description: "c 1995 года",
-			image: "/src/assets/main/hovered-items/icecream.png"
+			title: "Замороженные полуфабрикаты",
+			description: "c 2009 года",
+			image: "/src/assets/main/hovered-items/polyfab.png"
 		},
 		{
 			id: 2,
-			title: "Мороженное",
-			description: "c 1995 года",
-			image: "/src/assets/main/hovered-items/icecream.png"
+			title: "Лапша быстрого приготовления",
+			description: "c 2012 года",
+			image: "/src/assets/main/hovered-items/lapsha.png"
 		},
 		{
 			id: 3,
-			title: "Мороженное",
-			description: "c 1995 года",
-			image: "/src/assets/main/hovered-items/icecream.png"
+			title: "Розничная сеть CU в Казахстане",
+			description: "c 2024 года",
+			image: "/src/assets/main/hovered-items/CU.png"
 		}
 	];
 
 	return (
-			<div className='container mx-auto '>
+			<div className='container mx-auto mt-[-40px] '>
 				<img src='/src/assets/main/1main.webp' alt='' />
 				<div className=''>
 					<img src='/src/assets/main/2main.webp' alt='' />
 				</div>
 				<div className='flex pb-[70px] mt-[-90px] rounded-t-[90px] bg-white transform-3d'>
-					<div className='w-1/2 pt-20 pl-[110px] pr-20'>
-						<h1>Группа компаний Шин-Лайн</h1>
-						<p>
+					<div className='w-1/2 pt-20 pl-[110px] pr-20 '>
+						<h1 className='md font-[cursive] font-bold text-[50px]'>Группа компаний Шин-Лайн</h1>
+						<p className='font-[cursive] text-xl'>
 							Основанная в 1995 году как семейное предприятие, сегодня компания
 							стала №1 по производству мороженого в Центральной Азии. В 2025 году
 							мы выпустили 37 000 тонн продукции, соответствующей международным
 							стандартам качества.
 						</p>
-						<Link to=''>
-							Подробнее <img src='/src/assets/arrow.svg' />
+						<Link to='' className='text-xl '>
+							Подробнее <img className='' src='/src/assets/arrow.svg' />
 						</Link>
 					</div>
 					<div className='w-1/2 pt-20 pb-[150px] pl-20 pr-[140px]  bg-[#e4e9f0] rounded-t-[90px] '>

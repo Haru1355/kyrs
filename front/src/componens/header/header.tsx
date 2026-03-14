@@ -1,17 +1,19 @@
-import { Link } from 'react-router';
+import {Link, useLocation} from 'react-router';
 import {ShoppingCart} from "lucide-react";
 import {useAtomValue} from "jotai";
 import {cardAtom} from "../../store/store-card.ts";
 
 export const Header = () => {
 	const card = useAtomValue(cardAtom)
+	const location = useLocation();
+	
 	return (
 		<header className='flex max-w-100% mx-auto justify-between items-center px-5 my-5 gap-12 '>
-			<Link to='/'><img
-				className='w-full max-w-[157px] h-[141px]'
-				src='/src/assets/logo.svg'
-				alt='logo'
-			/></Link>
+			{location.pathname !== '/' && (<Link to='/'><img
+					className='w-full max-w-[157px] h-[141px]'
+					src='/src/assets/logo.svg'
+					alt='logo'
+			/></Link>)}
 			<div className=' w-full justify-center text-gray-600'>
 				<ul className='flex gap-2 justify-between'>
 					<li className='flex items-center justify-center'>

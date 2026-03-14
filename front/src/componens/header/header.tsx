@@ -6,7 +6,7 @@ import {cardAtom} from "../../store/store-card.ts";
 export const Header = () => {
 	const card = useAtomValue(cardAtom)
 	const location = useLocation();
-	console.log(location.pathname)
+	
 	return (
 		<header className='flex max-w-100% mx-auto justify-between items-center px-5 my-5 gap-12 '>
 			{location.pathname !== '/' && (<Link to='/'><img

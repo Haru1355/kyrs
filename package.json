@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "front": "^0.0.1"
+    "front": "^0.0.1",
+    "swiper": "^12.1.2"
   }
 }

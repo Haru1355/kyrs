@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { fetchOneNews } from '../api/api';
 import { Content } from '../componens/content/content';
 import type { OneNewsResponse } from '../types/news';
+
 const formatter = new Intl.DateTimeFormat('ru-RU', {
 	day: 'numeric',
 	month: 'long',
@@ -31,28 +32,27 @@ export const NewsPage = () => {
 		};
 
 		fetchData();
-	}, []);
+	}, [slug]);
 
 	if (loading || !news?.data) {
-		return <div>Loading...</div>;
+		return <div className='text-center py-10'>Загрузка...</div>;
 	}
 
 	if (error) {
-		return <div>Error: {error}</div>;
+		return (
+			<div className='text-center py-10 text-red-600'>Ошибка: {error}</div>
+		);
 	}
-	console.log(news);
+
 	return (
-		<div className='bg-[#f4f6f9] rounded-t-[90px] p-20 mt-[-55px]'>
-			<article>
-	    	
-				<h1 className='text-[40px] text-[#1a1a1a]  pl-2 font-bold'>
+		<div className='bg-[#f4f6f9] rounded-t-[30px] md:rounded-t-[90px] p-4 md:p-10 lg:p-20 mt-[-40px] md:mt-[-55px]'>
+			<article className='w-full'>
+				<h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-[40px] text-[#1a1a1a] px-2 md:px-0 font-bold'>
 					{news?.data[0].title}
 				</h1>
-			{
-					<p className='text-[#0000007e] text-[16px] ml-2 mt-2 border-b-1 border-[#38405233]'>
-						{formatter.format(new Date(news.data[0].date))}
-					</p>
-				}
+				<p className='text-[#0000007e] text-sm md:text-base px-2 md:px-0 mt-3 md:mt-2 border-b border-[#38405233] pb-3 md:pb-4'>
+					{formatter.format(new Date(news.data[0].date))}
+				</p>
 				<Content content={news.data[0].content} />
 			</article>
 		</div>

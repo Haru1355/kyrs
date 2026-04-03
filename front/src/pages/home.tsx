@@ -2,131 +2,171 @@ import cn from 'classnames';
 import { useState } from 'react';
 import { Link } from 'react-router';
 
+// Константа вне компонента - создается один раз
+const CARDS = [
+	{
+		id: 0,
+		title: 'Мороженное',
+		p: 'Крупнейшее производство в Центральной Азии: инновационные технологии и 163 вида мороженого',
+		description: 'c 1995 года',
+		image: '/src/assets/main/hovered-items/icecream.png',
+	},
+	{
+		id: 1,
+		title: 'Замороженные полуфабрикаты',
+		p: 'Высокое качество замороженных полуфабрикатов для оптовых и розничных клиентов',
+		description: 'c 2009 года',
+		image: '/src/assets/main/hovered-items/polyfab.png',
+	},
+	{
+		id: 2,
+		title: 'Лапша быстрого приготовления',
+		p: 'Популярные лапша и макаронные изделия с соусами и оригинальными вкусами',
+		description: 'c 2012 года',
+		image: '/src/assets/main/hovered-items/lapsha.png',
+	},
+	{
+		id: 3,
+		title: 'Розничная сеть CU в Казахстане',
+		p: 'Удобная розничная сеть с доставкой товаров в пункты выдачи',
+		description: 'c 2024 года',
+		image: '/src/assets/main/hovered-items/CU.png',
+	},
+] as const;
+
 export const Home = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
 
-	// Массив с данными для карточек
-	const cards = [
-		{
-			id: 0,
-			title: 'Мороженное ',
-			p: 'Крупнейшее производство в Центральной Азии: инновационные технологии и 163 вида мороженого',
-			description: 'c 1995 года',
-			image: '/src/assets/main/hovered-items/icecream.png',
-		},
-		{
-			id: 1,
-			title: 'Замороженные полуфабрикаты',
-			description: 'c 2009 года',
-			image: '/src/assets/main/hovered-items/polyfab.png',
-		},
-		{
-			id: 2,
-			title: 'Лапша быстрого приготовления',
-			description: 'c 2012 года',
-			image: '/src/assets/main/hovered-items/lapsha.png',
-		},
-		{
-			id: 3,
-			title: 'Розничная сеть CU в Казахстане',
-			description: 'c 2024 года',
-			image: '/src/assets/main/hovered-items/CU.png',
-		},
-	];
-
 	return (
-		<div className='container mx-auto mt-[-40px] relative '>
-			<img src='/src/assets/main/1main.webp' alt='' />
-			<div className='absolute inset-0 top-[3%] left-[5%]'>
-				<img src='/src/assets/main/2main.svg' width={600} height={500} alt='' />
+		<div className='w-full'>
+			{/* Главное изображение с SVG */}
+			<div className='relative'>
+				<img
+					src='/src/assets/main/1main.webp'
+					alt='Шин-Лайн'
+					className='w-full h-auto'
+				/>
+				{/* SVG декоративное на уровне глаз справа */}
+				<div className='absolute top-1/5 left-4 sm:left-6 md:left-8 lg:left-50 pointer-events-none'>
+					<img
+						src='/src/assets/main/2main.svg'
+						alt=''
+						className='w-32 sm:w-48 md:w-64 lg:w-150 h-auto'
+					/>
+				</div>
 			</div>
-			<div className='flex pb-[70px] mt-[-90px] rounded-t-[90px] bg-white transform-3d'>
-				<div className='w-1/2 pt-20 pl-[110px] pr-20 '>
-					<h1 className='md font-[cursive] font-bold text-[50px]'>
+
+			{/* Секция 1: Описание + Статистика */}
+			<div className='flex flex-col md:flex-row pb-10 md:pb-16 lg:pb-[70px] -mt-16 md:-mt-20 lg:-mt-[90px] rounded-t-2xl md:rounded-t-3xl lg:rounded-t-[90px] bg-white transform-3d'>
+				{/* Текст */}
+				<div className='w-full md:w-1/2 pt-6 sm:pt-10 md:pt-16 lg:pt-20 px-4 sm:px-6 md:pl-8 lg:pl-[110px] lg:pr-20'>
+					<h1 className='font-[cursive] font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[50px] leading-tight'>
 						Группа компаний Шин-Лайн
 					</h1>
-					<p className='font-[cursive] text-2xl'>
+					<p className='font-[cursive] text-sm sm:text-base md:text-lg lg:text-2xl mt-4 md:mt-6 leading-relaxed'>
 						Основанная в 1995 году как семейное предприятие, сегодня компания
 						стала №1 по производству мороженого в Центральной Азии. В 2025 году
 						мы выпустили 37 000 тонн продукции, соответствующей международным
 						стандартам качества.
 					</p>
-					<Link to='' className='text-xl bg-[#a49a9a67] rounded-full px-10 relative'>
-						Подробнее <img className='absolute ' src='/src/assets/arrow.svg' />
+					<Link
+						to=''
+						className='inline-flex items-center text-sm md:text-lg lg:text-xl bg-[#a49a9a67] rounded-full px-6 md:px-10 py-2 md:py-3 relative mt-4 md:mt-8 hover:bg-[#a49a9a] transition-colors'
+					>
+						Подробнее
+						<img
+							className='ml-2 md:ml-3 w-4 h-4 md:w-5 md:h-5'
+							src='/src/assets/arrow.svg'
+							alt=''
+						/>
 					</Link>
-					
 				</div>
-				<div className='w-1/2 pt-20 pb-[150px] pl-20 pr-[140px]  bg-[#e4e9f0] rounded-t-[90px] '>
-					<ul>
-						<li className='-rotate-10 flex  flex-wrap items-center gap-x-[30px] leading-none'>
-							<span className='text-[#e50909] text-[100px] font-extrabold'>
-								10
-							</span>
-							<span className='max-w-[220px] text-[26px] font-semibold'>
-								Стран импортеров
-							</span>
-						</li>
-						<li className='-rotate-10 flex  flex-wrap items-center gap-x-[30px] leading-none'>
-							<span className='text-[#e50909] text-[100px] font-extrabold'>
-								16
-							</span>
-							<span className='max-w-[220px] text-[26px] font-semibold'>
-								Филиалов
-							</span>
-						</li>
-						<li className='-rotate-10 flex flex-wrap items-center gap-x-[30px] leading-none'>
-							<span className='text-[#e50909] text-[100px] font-extrabold'>
-								100
-							</span>
-							<span className='max-w-[220px] text-[26px] font-semibold'>
-								Дистрибьюторов
-							</span>
-						</li>
-						<li className='-rotate-10 flex flex-wrap items-center gap-x-[30px] leading-none'>
-							<span className='text-[#e50909] text-[100px] font-extrabold'>
-								130.000
-							</span>
-							<span className=' text-[26px] font-semibold text-end w-2/3'>
-								Точек продаж
-							</span>
-						</li>
+
+				{/* Статистика */}
+				<div className='w-full md:w-1/2 pt-6 sm:pt-10 md:pt-16 lg:pt-20 pb-8 sm:pb-12 md:pb-20 lg:pb-[150px] px-4 sm:px-6 md:pl-8 lg:pl-20 lg:pr-[140px] bg-[#e4e9f0] md:rounded-t-3xl lg:rounded-t-[90px] rounded-t-2xl mt-6 md:mt-0'>
+					<ul className='space-y-4 md:space-y-6'>
+						{[
+							{ num: '10', text: 'Стран импортеров' },
+							{ num: '16', text: 'Филиалов' },
+							{ num: '100', text: 'Дистрибьюторов' },
+							{ num: '130.000', text: 'Точек продаж' },
+						].map((item) => (
+							<li key={item.num} className='md:-rotate-10 flex flex-wrap items-center gap-2 sm:gap-4 md:gap-6 lg:gap-[30px] leading-none'>
+								<span className='text-3xl sm:text-5xl md:text-6xl lg:text-[100px] font-extrabold text-[#e50909]'>
+									{item.num}
+								</span>
+								<span className='max-w-[220px] text-base sm:text-lg md:text-xl lg:text-[26px] font-semibold'>
+									{item.text}
+								</span>
+							</li>
+						))}
 					</ul>
 				</div>
 			</div>
-			<div className='flex pb-[70px] mt-[-90px] relative'>
+
+			{/* Секция 2: Крупнейший комплекс */}
+			<div className='relative pb-10 md:pb-16 lg:pb-[70px] -mt-16 md:-mt-20 lg:-mt-[90px]'>
 				<img
-					src='\src\assets\main\3main.webp'
+					src='/src/assets/main/3main.webp'
 					alt=''
-					className=' rounded-t-[90px] transform-3d'
+					className='w-full h-auto bg-white/30 rounded-t-2xl md:rounded-t-3xl lg:rounded-t-[90px] backdrop-brightness-50'
 				/>
-				<div className='w-1/2 pt-20 pl-[110px] pr-20 absolute'>
-					<h1 className='md font-[cursive] font-bold text-[50px] text-white'>
+				<div className='absolute inset-0 flex flex-col justify-center top-4 sm:top-8 md:top-16 lg:top-20 left-4 sm:left-6 md:left-8 lg:left-20 right-4 sm:right-6 md:right-8 lg:right-20 pr-4 sm:pr-6 md:pr-8 lg:pr-20'>
+					<h1 className='font-bold text-2xl sm:text-3xl md:text-5xl lg:text-[80px] text-white leading-tight'>
 						Крупнейший индустриальный комплекс
 					</h1>
-					<h3>37 000 тонн производства в 2025 году </h3>
+					<h3 className='font-[cursive] font-bold text-base sm:text-lg md:text-2xl lg:text-[30px] text-white mt-3 sm:mt-4 md:mt-6'>
+						37 000 тонн производства в 2025 году
+					</h3>
 				</div>
 			</div>
-			<div className='mt-[-150px] transform-3d bg-white pt-[90px] rounded-t-[90px] pb-20'>
-				<h2 className='font-[cursive]  text-[40px] text-center pl-20 -mt-10'>
+
+			{/* Секция 3: Направления деятельности */}
+			<div className='mt-[-30px] md:-mt-20 lg:-mt-[150px] transform-3d bg-white pt-6 sm:pt-10 md:pt-16 lg:pt-[90px] rounded-t-2xl md:rounded-t-3xl lg:rounded-t-[90px] pb-10 md:pb-16 lg:pb-20'>
+				<h2 className='font-[cursive] text-2xl sm:text-3xl md:text-4xl lg:text-[40px] text-center px-4 sm:px-8 md:px-12 lg:px-20'>
 					Направления деятельности
 				</h2>
-				<div className='flex mt-10 px-20 gap-x-[20px] max-w-[1800px] w-full font-[cursive] text-fuchsia-50'>
-					{cards.map(card => (
+
+				{/* Мобильная версия: список карточек */}
+				<div className='md:hidden mt-6 space-y-4 px-4 '>
+					{CARDS.map(card => (
+						<div
+							key={card.id}
+							className='relative h-64 rounded-2xl overflow-hidden cursor-pointer'
+							onClick={() => setActiveIndex(card.id)}
+						>
+							<img
+								src={card.image}
+								alt={card.title}
+								className='w-full h-full object-cover'
+							/>
+							<div className='absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white font-[cursive]'>
+								<p className='text-xs'>{card.description}</p>
+								<h3 className='font-bold text-lg'>{card.title}</h3>
+								<p className='text-xs line-clamp-2'>{card.p}</p>
+							</div>
+						</div>
+					))}
+				</div>
+
+				{/* Планшет+: интерактивные карточки */}
+				<div className='hidden md:flex flex-nowrap gap-3 lg:gap-5 font-[cursive] text-fuchsia-50 overflow-x-auto mt-6 md:mt-10 px-4 sm:px-6 md:px-8 lg:px-20 pb-4'>
+					{CARDS.map(card => (
 						<div
 							key={card.id}
 							className={cn(
-								'relative flex flex-col grow gap-y-5 h-[480px] justify-between pt-[45px] px-5 pb-[25px] transition-all duration-300',
+								'relative flex flex-col gap-y-5 justify-between pt-6 md:pt-8 lg:pt-[45px] px-3 lg:px-5 pb-5 lg:pb-[25px] transition-all duration-300 rounded-[20px] flex-shrink-0 cursor-pointer',
 								{
-									'!w-[480px] aspect-square': activeIndex === card.id,
-									'w-[calc((100%-630px)/3)]': activeIndex !== card.id,
+									'!w-56 md:!w-64 lg:!w-[480px] lg:aspect-square h-56 md:h-64': activeIndex === card.id,
+									'w-40 md:w-48 lg:w-[calc((100%-630px)/3)] h-56 md:h-64': activeIndex !== card.id,
 								},
 							)}
 							onMouseEnter={() => setActiveIndex(card.id)}
 						>
-							<div className='absolute w-full h-full inset-0'>
+							<div className='absolute w-full h-full inset-0 rounded-[20px]'>
 								<img
 									src={card.image}
-									alt=''
+									alt={card.title}
 									className={cn(
 										'object-bottom object-cover w-full h-full rounded-[20px] transition-all duration-300',
 										{
@@ -136,14 +176,24 @@ export const Home = () => {
 								/>
 							</div>
 							<div className='relative z-10 max-w-[330px] mx-auto text-center'>
-								<p>{card.description}</p>
-								<h1 className='text-[20px]'>
-									<b>{card.title}</b>
+								<p className='text-xs lg:text-base'>{card.description}</p>
+								<h1 className='text-sm lg:text-[20px] font-bold'>
+									{card.title}
 								</h1>
-								<p>{card.p}</p>
+								<p className='text-xs lg:text-base line-clamp-3'>{card.p}</p>
 							</div>
 						</div>
 					))}
+				</div>
+			</div>
+
+			{/* Секция 4: Контакты */}
+			<div className='pt-6 sm:pt-10 md:pt-16 lg:pt-20 pb-12 md:pb-20 lg:pb-[150px] px-4 sm:px-6 md:px-8 lg:pl-20 lg:pr-[140px] bg-[#999ba3] rounded-t-2xl md:rounded-t-3xl lg:rounded-t-[90px]'>
+				<h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black text-center font-[cursive]'>
+					Контакты
+				</h1>
+				<div className='pt-6 sm:pt-10 md:pt-16 lg:pt-20'>
+					<div className='w-full md:w-[500px] h-48 sm:h-56 md:h-[300px] bg-black rounded-lg md:rounded-xl mx-auto md:mx-0'></div>
 				</div>
 			</div>
 		</div>

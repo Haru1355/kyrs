@@ -155,9 +155,9 @@ export const Home = () => {
 						<div
 							key={card.id}
 							className={cn(
-								'relative flex flex-col gap-y-5 justify-between pt-6 md:pt-8 lg:pt-[45px] px-3 lg:px-5 pb-5 lg:pb-[25px] transition-all duration-300 rounded-[20px] flex-shrink-0 cursor-pointer',
+								'relative flex flex-col gap-y-5 justify-between pt-6 md:pt-8 lg:pt-[45px] px-3 lg:px-5 pb-5 lg:pb-[25px] transition-all duration-300 rounded-[20px] shrink-0 cursor-pointer',
 								{
-									'!w-56 md:!w-64 lg:!w-[480px] lg:aspect-square h-56 md:h-64': activeIndex === card.id,
+									'w-56! md:w-64! lg:w-[480px]! lg:aspect-square h-56 md:h-64': activeIndex === card.id,
 									'w-40 md:w-48 lg:w-[calc((100%-630px)/3)] h-56 md:h-64': activeIndex !== card.id,
 								},
 							)}

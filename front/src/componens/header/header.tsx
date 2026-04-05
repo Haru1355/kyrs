@@ -43,7 +43,7 @@ export const Header = () => {
 							<li key={link.to}>
 								<Link
 									to={link.to}
-									className='text-base sm:text-lg px-8 py-6 rounded-lg hover:bg-gray-100 hover:text-[#e50909] transition-all'
+									className='text-base sm:text-sm px-8 py-6 rounded-lg hover:bg-gray-100 hover:text-[#e50909] transition-all'
 								>
 									{link.label}
 								</Link>

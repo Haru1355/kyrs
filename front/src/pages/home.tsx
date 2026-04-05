@@ -90,8 +90,11 @@ export const Home = () => {
 							{ num: '16', text: 'Филиалов' },
 							{ num: '100', text: 'Дистрибьюторов' },
 							{ num: '130.000', text: 'Точек продаж' },
-						].map((item) => (
-							<li key={item.num} className='md:-rotate-10 flex flex-wrap items-center gap-2 sm:gap-4 md:gap-6 lg:gap-[30px] leading-none'>
+						].map(item => (
+							<li
+								key={item.num}
+								className='md:-rotate-10 flex flex-wrap items-center gap-2 sm:gap-4 md:gap-6 lg:gap-[30px] leading-none'
+							>
 								<span className='text-3xl sm:text-5xl md:text-6xl lg:text-[100px] font-extrabold text-[#e50909]'>
 									{item.num}
 								</span>
@@ -132,7 +135,7 @@ export const Home = () => {
 					{CARDS.map(card => (
 						<div
 							key={card.id}
-							className='relative h-64 rounded-2xl overflow-hidden cursor-pointer'
+							className='relative h-full rounded-2xl overflow-hidden cursor-pointer'
 							onClick={() => setActiveIndex(card.id)}
 						>
 							<img
@@ -150,15 +153,17 @@ export const Home = () => {
 				</div>
 
 				{/* Планшет+: интерактивные карточки */}
-				<div className='hidden md:flex flex-nowrap gap-3 lg:gap-5 font-[cursive] text-fuchsia-50 overflow-x-auto mt-6 md:mt-10 px-4 sm:px-6 md:px-8 lg:px-20 pb-4'>
+				<div className='hidden md:flex flex-wrap gap-3 lg:gap-5 font-[cursive] text-fuchsia-50 mt-6 md:mt-10 px-4 sm:px-6 md:px-8 lg:px-20 pb-4'>
 					{CARDS.map(card => (
 						<div
 							key={card.id}
 							className={cn(
 								'relative flex flex-col gap-y-5 justify-between pt-6 md:pt-8 lg:pt-[45px] px-3 lg:px-5 pb-5 lg:pb-[25px] transition-all duration-300 rounded-[20px] shrink-0 cursor-pointer',
 								{
-									'w-56! md:w-64! lg:w-[480px]! lg:aspect-square h-56 md:h-64': activeIndex === card.id,
-									'w-40 md:w-48 lg:w-[calc((100%-630px)/3)] h-56 md:h-64': activeIndex !== card.id,
+									'w-56! md:w-64! lg:w-[480px]! lg:aspect-square h-56 md:h-[480px]':
+										activeIndex === card.id,
+									'w-40 md:w-48 lg:w-[calc((100%-630px)/3)] h-full md:h-[480px]':
+										activeIndex !== card.id,
 								},
 							)}
 							onMouseEnter={() => setActiveIndex(card.id)}
@@ -168,7 +173,7 @@ export const Home = () => {
 									src={card.image}
 									alt={card.title}
 									className={cn(
-										'object-bottom object-cover w-full h-full rounded-[20px] transition-all duration-300',
+										'object-bottom object-cover w-full h-[480px]! rounded-[20px] transition-all duration-300',
 										{
 											'rounded-[500px]': activeIndex === card.id,
 										},
@@ -188,12 +193,80 @@ export const Home = () => {
 			</div>
 
 			{/* Секция 4: Контакты */}
-			<div className='pt-6 sm:pt-10 md:pt-16 lg:pt-20 pb-12 md:pb-20 lg:pb-[150px] px-4 sm:px-6 md:px-8 lg:pl-20 lg:pr-[140px] bg-[#999ba3] rounded-t-2xl md:rounded-t-3xl lg:rounded-t-[90px]'>
-				<h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black text-center font-[cursive]'>
+			<div className='pt-6 sm:pt-10 md:pt-16 lg:pt-20 pb-12 md:pb-20 lg:pb-[150px] px-4 sm:px-6 md:px-8 lg:px-20 bg-[#f6f7fa] rounded-t-2xl md:rounded-t-3xl lg:rounded-t-[90px]'>
+				<h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#1f2937] text-center font-[cursive]'>
 					Контакты
 				</h1>
-				<div className='pt-6 sm:pt-10 md:pt-16 lg:pt-20'>
-					<div className='w-full md:w-[500px] h-48 sm:h-56 md:h-[300px] bg-black rounded-lg md:rounded-xl mx-auto md:mx-0'></div>
+				<div className='mt-10 grid gap-6 md:grid-cols-3'>
+					<div className='rounded-[30px] bg-white p-8 shadow-[0_35px_60px_-30px_rgba(15,23,42,0.35)]'>
+						<h3 className='text-xl font-semibold text-[#242f3d] mb-4'>
+							ТОО «Шин-Лайн»
+						</h3>
+						<p className='text-sm leading-7 text-[#4b5563]'>
+							Алматинская область, Илийский район, с. Байсерке,
+							<br />
+							улица Султана Бейбариса, 58
+						</p>
+					</div>
+					<div className='rounded-[30px] bg-white p-8 shadow-[0_35px_60px_-30px_rgba(15,23,42,0.35)]'>
+						<h3 className='text-xl font-semibold text-[#242f3d] mb-4'>
+							По общим вопросам
+						</h3>
+						<p className='text-base font-semibold text-[#1f2937] mb-3'>
+							+7 727 220 84 11
+						</p>
+						<p className='text-sm text-[#4b5563]'>hello@shin-line.com</p>
+					</div>
+					<div className='rounded-[30px] bg-white p-8 shadow-[0_35px_60px_-30px_rgba(15,23,42,0.35)]'>
+						<h3 className='text-xl font-semibold text-[#242f3d] mb-4'>
+							По вопросам продаж
+						</h3>
+						<p className='text-base font-semibold text-[#1f2937]'>
+							+7 705 134 26 84
+						</p>
+					</div>
+					<div className='rounded-[30px] bg-white p-8 shadow-[0_35px_60px_-30px_rgba(15,23,42,0.35)]'>
+						<h3 className='text-xl font-semibold text-[#242f3d] mb-4'>
+							По вопросам качества
+						</h3>
+						<p className='text-base font-semibold text-[#1f2937] mb-3'>
+							+7 771 741 00 50
+						</p>
+						<p className='text-sm text-[#4b5563]'>hot-line@shin-line.com</p>
+					</div>
+					<div className='rounded-[30px] bg-white p-8 shadow-[0_35px_60px_-30px_rgba(15,23,42,0.35)]'>
+						<h3 className='text-xl font-semibold text-[#242f3d] mb-4'>
+							Контактное лицо для СМИ
+						</h3>
+						<p className='text-base font-semibold text-[#1f2937] mb-3'>
+							+7 771 761 04 94
+						</p>
+						<p className='text-sm text-[#4b5563]'>
+							muqtar.elmira@shin-line.com
+						</p>
+					</div>
+					<div className='rounded-[30px] bg-white p-8 shadow-[0_35px_60px_-30px_rgba(15,23,42,0.35)]'>
+						<h3 className='text-xl font-semibold text-[#242f3d] mb-4'>
+							По вопросам вакансий
+						</h3>
+						<p className='text-base font-semibold text-[#1f2937] mb-2'>
+							+7 771 766 00 78
+						</p>
+						<p className='text-base font-semibold text-[#1f2937]'>
+							+7 771 990 09 70
+						</p>
+					</div>
+				</div>
+				<div className='mt-10 grid gap-6 md:grid-cols-3 items-center'>
+					<div className='md:col-span-2'>
+						<Link
+							to='/contacts'
+							className='inline-flex items-center justify-center gap-2 rounded-full bg-[#e50909] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-[#e50909]/20 transition hover:bg-[#c10808]'
+						>
+							Связаться с нами
+							<img src='/src/assets/arrow.svg' alt='' className='w-4 h-4' />
+						</Link>
+					</div>
 				</div>
 			</div>
 		</div>

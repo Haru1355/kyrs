@@ -38,12 +38,12 @@ export const Header = () => {
 				</div>
 
 				<nav className='hidden md:flex flex-1 justify-center'>
-					<ul className='flex flex-wrap items-center gap-2 lg:gap-4'>
+					<ul className='flex flex-nowrap items-center gap-0.5 lg:gap-2 whitespace-nowrap'>
 						{NAV_LINKS.map(link => (
 							<li key={link.to}>
 								<Link
 									to={link.to}
-									className='text-base sm:text-sm px-8 py-6 rounded-lg hover:bg-gray-100 hover:text-[#e50909] transition-all'
+									className='text-xs lg:text-sm px-1 md:px-1.5 lg:px-3 py-3 lg:py-5 rounded-lg hover:bg-gray-100 hover:text-[#e50909] transition-all'
 								>
 									{link.label}
 								</Link>
@@ -53,15 +53,15 @@ export const Header = () => {
 				</nav>
 
 				<div className='flex items-center gap-2'>
-					<div className='hidden sm:flex items-center gap-2'>
-						<button className='p-3 rounded-full hover:bg-gray-100 transition-colors'>
-							<Search className='w-8 h-8 text-gray-600' />
+					<div className='hidden md:flex items-center gap-1 lg:gap-2'>
+						<button className='p-2 lg:p-3 rounded-full hover:bg-gray-100 transition-colors'>
+							<Search className='w-5 h-5 lg:w-6 lg:h-6 text-gray-600' />
 						</button>
 						<a
 							href='https://www.instagram.com'
 							target='_blank'
 							rel='noreferrer'
-							className='p-3 rounded-full hover:bg-gray-100 transition-colors'
+							className='p-2 lg:p-3 rounded-full hover:bg-gray-100 transition-colors'
 						>
 							<Instagram className='w-5 h-5 text-gray-600' />
 						</a>
@@ -77,12 +77,12 @@ export const Header = () => {
 
 					<Link
 						to='/card'
-						className='relative flex items-center justify-center rounded-full bg-[#e50909] p-5 text-white hover:opacity-90 transition-opacity'
+						className='relative flex items-center justify-center rounded-full bg-[#e50909] p-3 lg:p-5 text-white hover:opacity-90 transition-opacity'
 					>
-						<span className='absolute -top-1 -right-1 grid h-6 w-6 place-items-center rounded-full bg-white text-sm font-bold text-[#e50909]'>
+						<span className='absolute -top-1 -right-1 grid h-5 w-5 lg:h-6 lg:w-6 place-items-center rounded-full bg-white text-xs lg:text-sm font-bold text-[#e50909]'>
 							{card.reduce((acc, item) => acc + item.count, 0)}
 						</span>
-						<ShoppingCart className='w-6 h-6' />
+						<ShoppingCart className='w-5 h-5 lg:w-6 lg:h-6' />
 					</Link>
 
 					<button

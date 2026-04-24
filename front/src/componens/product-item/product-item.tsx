@@ -61,7 +61,7 @@ export const ProductItem = ({ product }: { product: IProductItem }) => {
 				>
 					В корзину
 				</button>
-				<div className='flex items-center gap-2 sm:gap-3 bg-gray-100 rounded-lg p-2'>
+				<div className='flex items-center gap-2 sm:gap-3'>
 					<button
 						onClick={decrement}
 						className='size-8 sm:size-10 rounded-full flex items-center justify-center border border-[#e50909] cursor-pointer text-[#e50909] transition-all duration-200 hover:bg-[#e50909] hover:border-[#e50909] hover:text-white'

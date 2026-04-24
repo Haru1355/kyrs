@@ -1,6 +1,8 @@
 import cn from 'classnames';
 import { useState } from 'react';
 import { Link } from 'react-router';
+import { HomeNewsSection } from '../componens/home-news/home-news.tsx';
+import { HomeOfficeMap } from '../componens/home-office-map/home-office-map.tsx';
 
 // Константа вне компонента - создается один раз
 const CARDS = [
@@ -39,25 +41,25 @@ export const Home = () => {
 
 	return (
 		<div className='w-full'>
-			{/* Главное изображение с SVG */}
-			<div className='relative'>
+			{/* Главное изображение с SVG: на мобильном без отриц. margin — баннер целиком под шапкой; выше — с sm */}
+			<div className='relative mt-0 sm:-mt-3 md:-mt-5 lg:-mt-7 xl:-mt-8'>
 				<img
 					src='/src/assets/main/1main.webp'
 					alt='Шин-Лайн'
 					className='w-full h-auto'
 				/>
-				{/* SVG декоративное на уровне глаз справа */}
-				<div className='absolute top-1/5 left-4 sm:left-6 md:left-8 lg:left-50 pointer-events-none'>
+				{/* SVG декоративное — меньше, чтобы целиком влезало и читалось */}
+				<div className='absolute top-[14%] sm:top-[16%] md:top-[17%] left-3 sm:left-5 md:left-6 lg:left-10 xl:left-14 max-w-[min(88vw,20rem)] sm:max-w-[min(80vw,24rem)] md:max-w-[min(72vw,28rem)] lg:max-w-[min(55vw,32rem)] xl:max-w-[36rem] pointer-events-none'>
 					<img
 						src='/src/assets/main/2main.svg'
 						alt=''
-						className='w-32 sm:w-48 md:w-64 lg:w-150 h-auto'
+						className='w-full h-auto object-contain object-left'
 					/>
 				</div>
 			</div>
 
 			{/* Секция 1: Описание + Статистика */}
-			<div className='flex flex-col md:flex-row pb-10 md:pb-16 lg:pb-[70px] -mt-16 md:-mt-20 lg:-mt-[90px] rounded-t-2xl md:rounded-t-3xl lg:rounded-t-[90px] bg-white transform-3d'>
+			<div className='flex flex-col md:flex-row pb-10 md:pb-16 lg:pb-[70px] -mt-8 sm:-mt-12 md:-mt-20 lg:-mt-[90px] rounded-t-2xl md:rounded-t-3xl lg:rounded-t-[90px] bg-white transform-3d'>
 				{/* Текст */}
 				<div className='w-full md:w-1/2 pt-6 sm:pt-10 md:pt-16 lg:pt-20 px-4 sm:px-6 md:pl-8 lg:pl-[110px] lg:pr-20'>
 					<h1 className='font-[cursive] font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[50px] leading-tight'>
@@ -192,6 +194,8 @@ export const Home = () => {
 				</div>
 			</div>
 
+			<HomeNewsSection />
+
 			{/* Секция 4: Контакты */}
 			<div className='pt-6 sm:pt-10 md:pt-16 lg:pt-20 pb-12 md:pb-20 lg:pb-[150px] px-4 sm:px-6 md:px-8 lg:px-20 bg-[#f6f7fa] rounded-t-2xl md:rounded-t-3xl lg:rounded-t-[90px]'>
 				<h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#1f2937] text-center font-[cursive]'>
@@ -269,6 +273,8 @@ export const Home = () => {
 					</div>
 				</div>
 			</div>
+
+			<HomeOfficeMap />
 		</div>
 	);
 };
